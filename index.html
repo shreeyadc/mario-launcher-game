@@ -1,0 +1,67 @@
+<!--
+  Shreeya Champaneri
+  January 2022
+  Summative Game
+  This is the HTML page of my summative game, where information regarding the PLAY button and background music is.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<title>Mario Launcher</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.52.0/phaser.min.js" integrity="sha512-2wu8HKyxH3r65DZuWEdiov7+mBVti4Kfjg9WTXNP8qitejYSBn2S+Kgi4M3ctlnA9qTDU6hyTsiqpIfFhQBY0Q=="
+	 crossorigin="anonymous">
+	</script>
+  
+	<script src="script.js">
+
+	</script>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="element">
+		<button class="play" onclick="myFunction()">PLAY</button>
+  </div>
+
+<audio id="myMusic">
+  <source src="assets/music/themeSong.m4a" type="audio/mp4">
+</audio>
+
+<img src="assets/sprites/playBtn.png" id="icon">
+
+
+<script>
+function myFunction() {
+  game.scene.start("game");
+  game.scene.remove("startGame");
+  document.getElementById("element").style.display = "none";
+  document.getElementById("icon").style.width = "35px";
+  document.getElementById("icon").style.height = "35px";
+  document.getElementById("icon").style.left = "10%";
+  document.getElementById("icon").style.top = "1.75%";
+}
+
+var myMusic = document.getElementById("myMusic");
+var icon = document.getElementById("icon");
+
+icon.onclick=function(){
+  if(myMusic.paused){
+    myMusic.play();
+    icon.src="assets/sprites/pauseBtn.svg";
+    document.getElementById("myMusic").loop = true;
+  }
+  else{
+    myMusic.pause();
+    icon.src="assets/sprites/playBtn.png";
+  }
+}
+
+</script>
+
+</body>
+</html>
